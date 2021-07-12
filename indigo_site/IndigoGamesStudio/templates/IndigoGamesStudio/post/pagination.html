@@ -1,0 +1,9 @@
+<div id="page-number-container">
+    {% if page.has_previous %}
+    <div class="previous-button"><a href="?page={{ page.previous_page_number }}"><<</a></div>
+    {% endif %}
+    <div id="page-number"><p>Strona {{ page.number }} z {{ page.paginator.num_pages }}</p></div>
+    {% if page.has_next %}
+    <div class="next-button"><a href="?page={{ page.next_page_number }}">>></a></div>
+    {% endif %}
+</div>

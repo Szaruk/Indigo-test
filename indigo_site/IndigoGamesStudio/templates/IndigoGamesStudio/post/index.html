@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'img/logo.ico' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'style/fontello.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Indigo Games</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links-left">
+                <li><a href="{% url 'blog:games_post_list' %}">Games</a></li>
+                <li><a href="about_us.html">About us</a></li>
+            </ul>
+            <div class="logo-container">
+                <img src="{% static '/img/logo.png' %}" alt="logo">
+            </div>
+            <ul class="nav-links-right">
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Private police</a></li>
+            </ul>
+            
+            <div class="resp-logo-container">
+                <img src="{% static '/img/logo.png' %}" alt="">
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="resp-nav-links">
+                <li><a href="index.html">Games</a></li>
+                <li><a href="about_us.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Private police</a></li>
+            </ul>
+        </nav>
+        <div class="baner">
+            <div class="nav-links-container">
+                <ul>
+                    <li><a href="index.html">Games</a></li>
+                    <li><a href="about_us.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Private police</a></li>
+                </ul>
+            </div>
+            <img src="{% static '/img/baner.jpg' %}" alt="baner">
+        </div>
+    </header>
+    <main>
+        {% block container %}
+        <div class="title"> Our Games</div>
+        <div class="container">
+            {% for games_posts in games_post %}
+                <div class="post">
+                    <div class="post-img-links">
+                        {% if games_posts.header_image %}
+                        <a href="#"><img src="{{ games_posts.header_image.url }}" alt=""></a>
+                        {% endif %}
+                        <a class="img-link" href="{{ games_posts.get_absolute_url }}"><i class="{{ games_posts.icon }}"><span>{{ games_posts.title }}</span></i></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% include "IndigoGamesStudio/post/pagination.html" with page=games_post %}
+        {% endblock %}
+    </main>
+    {% block footer %}
+    <footer> <h4>Indigo Games Studio &copy; 2021</h4></footer>
+    
+
+
+    <script src="static/js/app.js"></script>
+</body>
+</html>
+{% endblock %}
