@@ -50,3 +50,28 @@ class GamePost(models.Model):
                              self.publish.strftime('%m'),
                              self.publish.strftime('%d'),
                              self.slug])
+
+class AboutUs(models.Model):
+    POSITIONS = (
+        ('Programmer', 'Programmer'),
+        ('Graphics Designer', 'Graphics Designer'),
+    )
+    SOCIAL_ICONS = (
+        ('icon-linkedin-squared', 'icon-linkedin-squared'),
+        ('icon-github-circled-alt2', 'icon-github-circled-alt2'),
+        ('https://img.icons8.com/ios/50/000000/sketchfab.png', 'https://img.icons8.com/ios/50/000000/sketchfab.png')
+    )
+    first_name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=50)
+    position = models.CharField(max_length=50,
+                                choices=POSITIONS,
+                                default='Programmer')
+    social_icon_first = models.CharField(max_length=255,
+                                         choices = SOCIAL_ICONS,
+                                         default = 'icon-linkedin-squared')
+    social_icon_second = models.CharField(max_length=255,
+                                         choices = SOCIAL_ICONS,
+                                         default = 'icon-linkedin-squared')
+    person_img = models.ImageField(null=True, blank=True, upload_to="img/")
+    person_info = models.TextField()
+

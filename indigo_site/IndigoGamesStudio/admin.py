@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GamePost
+from .models import GamePost, AboutUs
 
 @admin.register(GamePost)
 class PostAdmin(admin.ModelAdmin):
@@ -10,3 +10,9 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
+
+@admin.register(AboutUs)
+class AboutUs(admin.ModelAdmin):
+    list_display = ('first_name', 'surname', 'position', 'social_icon_first', 'social_icon_second', 'person_img')
+    list_filter = ('position', 'surname')
+    search_fields = ('first_name', 'surname', 'position')

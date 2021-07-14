@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import GamePost
+from .models import GamePost, AboutUs
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def games_post_list(request):
@@ -26,3 +26,9 @@ def games_post_detail(request, year, month, day, post):
     return render(request,
                   'IndigoGamesStudio/post/games_detail.html',
                   {'post': post})
+
+def about_us_list(request):
+    person_list = AboutUs.objects.all()
+    return render(request,
+                  'IndigoGamesStudio/post/about_us.html',
+                  {'person_list': person_list})
