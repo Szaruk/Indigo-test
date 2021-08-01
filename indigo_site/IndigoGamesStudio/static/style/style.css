@@ -5,6 +5,13 @@
 	box-sizing: border-box;
 }
 
+#page-number-container{
+    text-align:center;
+    font-weight: bold;
+    color: #61089e;
+    font-size: 120%;
+}
+
 body{
 	font-family: 'Poppins', sans-serif;
 }
@@ -324,75 +331,8 @@ footer{
 	color:#61089e;
 }
 
-.contact-left{
-	flex: 1.3;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-.contact-left form{
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	width: 70%;
-}
-
-.contact-left form *{
-	margin: 20px;
-}
-
-.contact-left form input[type="text"]:hover{
-	border: solid #8724cf 2px;
-}
-
-.contact-left form input[type="text"]{
-	border-radius: 1vh 1vh 1vh 1vh;
-	padding: 15px 10px;
-	border: solid grey 2px;
-	outline: none;
-	transition: border 0.3s ease-in-out;
-}
-
-.contact-left form input[type="text"]:focus{
-	border: solid #8724cf 2px;
-}
-
-.contact-left form textarea{
-	border-radius: 1vh 1vh 1vh 1vh;
-	padding: 10px;
-	height: 300px;
-	border: solid grey 2px;
-	outline: none;
-	transition: border 0.3s ease-in-out;
-}
-
-.contact-left form textarea:focus{
-	border: solid #8724cf 2px;
-}
-
-.contact-left form textarea:hover{
-	border: solid #8724cf 2px;
-}
-
-.contact-left form input[type="submit"]{
-	width:30%;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 10px;
-	border-radius: 1vh 1vh 1vh 1vh;
-	background: none;
-	border: solid grey 2px;
-	color: grey;
-	outline: none;
-	transition: all 0.3s ease-in-out;
-}
-
-.contact-left form input[type="submit"]:hover{
-	cursor: pointer;
-	background: #8724cf;
-	border: #61089e solid 2px;
-	color: white;
+.contact-container a{
+	color:#61089e;
 }
 
 .contact-right{
@@ -531,6 +471,7 @@ footer{
 	margin: 1em;
 	margin-top: 1.5em;
 	float: right;
+	color: #8724cf;
 }
 
 
@@ -545,7 +486,7 @@ footer{
 	}
 
 	.container-about .person-info .main-info{
-		border-radius: 0 4vh 0 10vh;
+		border-radius: 0 5vh 0 10vh;
 	}
 }
 
@@ -585,7 +526,7 @@ footer{
 .detail-container{
 	min-height: 100vh;
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
@@ -611,6 +552,8 @@ footer{
 	text-align: justify;
 	width: 50%;
 	padding: 10px;
+	text-indent: 30px;
+	line-height: 160%;
 }
 
 .similar-title{

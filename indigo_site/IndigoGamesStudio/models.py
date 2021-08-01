@@ -59,7 +59,8 @@ class AboutUs(models.Model):
     SOCIAL_ICONS = (
         ('icon-linkedin-squared', 'icon-linkedin-squared'),
         ('icon-github-circled-alt2', 'icon-github-circled-alt2'),
-        ('https://img.icons8.com/ios/50/000000/sketchfab.png', 'https://img.icons8.com/ios/50/000000/sketchfab.png')
+        ('https://img.icons8.com/ios/50/000000/sketchfab.png', 'https://img.icons8.com/ios/50/000000/sketchfab.png'),
+        ('https://img.icons8.com/windows/50/000000/artstation.png', 'https://img.icons8.com/windows/50/000000/artstation.png'),
     )
     first_name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
@@ -69,9 +70,53 @@ class AboutUs(models.Model):
     social_icon_first = models.CharField(max_length=255,
                                          choices = SOCIAL_ICONS,
                                          default = 'icon-linkedin-squared')
-    social_icon_second = models.CharField(max_length=255,
-                                         choices = SOCIAL_ICONS,
-                                         default = 'icon-linkedin-squared')
+    social_icon_first_link = models.CharField(max_length=255,
+                                              null = True,
+                                              blank= True)
+    social_icon_second = models.CharField(null=True,
+                                          blank=True,
+                                         max_length=255,
+                                         choices = SOCIAL_ICONS)
+    social_icon_second_link = models.CharField(max_length=255,
+                                              null=True,
+                                               blank=True)
+    social_icon_third = models.CharField(null=True,
+                                         blank=True,
+                                         max_length = 255,
+                                         choices= SOCIAL_ICONS)
+    social_icon_third_link = models.CharField(max_length=255,
+                                               null=True,
+                                              blank=True)
+    social_icon_fourth = models.CharField(null=True,
+                                         blank=True,
+                                         max_length=255,
+                                         choices=SOCIAL_ICONS)
+    social_icon_fourth_link = models.CharField(max_length=255,
+                                              null=True,
+                                              blank=True)
     person_img = models.ImageField(null=True, blank=True, upload_to="img/")
     person_info = models.TextField()
 
+    def __str__(self):
+        return self.first_name + " " + self.surname
+
+
+
+class ContactUs(models.Model):
+    SOCIAL_MEDIA = (
+        ('icon-instagram', 'icon-instagram'),
+        ('icon-facebook-squared', 'icon-facebook-squared'),
+    )
+    address_email = models.CharField(max_length=30)
+    social_media_first = models.CharField(max_length=40,
+                                          choices = SOCIAL_MEDIA,
+                                          default = 'icon-instagram')
+    social_media_first_link = models.CharField(max_length=255,
+                                               null=True,
+                                               blank=True)
+    social_media_second = models.CharField(max_length=40,
+                                          choices=SOCIAL_MEDIA,
+                                          default='icon-facebook-squared')
+    social_media_second_link = models.CharField(max_length=255,
+                                                null=True,
+                                                blank=True)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GamePost, AboutUs
+from .models import GamePost, AboutUs, ContactUs
 
 @admin.register(GamePost)
 class PostAdmin(admin.ModelAdmin):
@@ -16,3 +16,7 @@ class AboutUs(admin.ModelAdmin):
     list_display = ('first_name', 'surname', 'position', 'social_icon_first', 'social_icon_second', 'person_img')
     list_filter = ('position', 'surname')
     search_fields = ('first_name', 'surname', 'position')
+
+@admin.register(ContactUs)
+class ContactUs(admin.ModelAdmin):
+    list_display = ('address_email', 'social_media_first', 'social_media_second')

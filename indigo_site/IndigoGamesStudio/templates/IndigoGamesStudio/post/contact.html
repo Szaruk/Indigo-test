@@ -1,0 +1,24 @@
+{% extends  "IndigoGamesStudio/post/index.html" %}
+{% load static %}
+{% block baner %}
+{% endblock%}
+    <main>
+        {% block container %}
+        <div class="contact-container">
+            {% for social_media in social_media_list %}
+            <div class="contact-right">
+                <div class="contact-right-top">
+                    <i class="icon-mail-alt"></i><p style="font-weight: bold;">{{ social_media.address_email }}</p>
+                </div>
+                <div class="contact-right-bottom">
+                    <h2>Follow us on social media</h2>
+                    <div class="social-media">
+                        <a href="#"><i class="{{ social_media.social_media_first }}"></i></a>
+                        <a href="#"><i class="{{ social_media.social_media_second }}"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>

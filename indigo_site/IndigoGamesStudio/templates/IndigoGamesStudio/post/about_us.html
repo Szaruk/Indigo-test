@@ -6,55 +6,37 @@
             Meet Us
         </div>
         <div class="container-about">
+            {% for person in person_list %}
             <div class="person-info">
                 <div class="person-photo">
-                    <img src="./img/jflaczyk.png" alt="">
+                    {% if person.person_img %}
+                    <img src="{{ person.person_img.url }}" alt="">
+                    {% endif %}
                 </div>
                 <div class="main-info">
-                    <h2>Jakub Flaczyk</h2>
-                    <h3>Programmer</h3>
+                    <h2>{{ person.first_name }} {{ person.surname }} </h2>
+                    <h3>{{ person.position }}</h3>
                 </div>
-                <a class="person-icon" href="#"><i class="icon-linkedin-squared"></i></a>
-                <a class="person-icon" href="#"><i class="icon-github-circled-alt2"></i></a>
+                <a class="person-icon" href="{{ person.social_icon_first_link }}"><i class="{{ person.social_icon_first }}"></i></a>
+                <a class="person-icon" href="{{ person.social_icon_second_link }}"><i class="{{ person.social_icon_second }}"></i></a>
+                {% if person.social_icon_third %}
+                    <a class="person-icon" style="margin-right: -20px; margin-top:19px;" href="{{ person.social_icon_third_link }}"><img src="{{ person.social_icon_third }}" /></a>
+                {% endif %}
+                {% if person.social_icon_third %}
+                    <a class="person-icon" style="margin-top:19px;" href="{{ person.social_icon_fourth_link }}"><img src="{{ person.social_icon_fourth }}"  /></a>
+                {% endif %}
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Quia magni impedit voluptas dolore hic ut 
-                    ratione eligendi rem numquam facere! Eaque, exercitationem fugiat? 
-                    Totam illum explicabo ea a debitis minus!
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Quia magni impedit voluptas dolore hic ut 
-                    ratione eligendi rem numquam facere! Eaque, exercitationem fugiat? 
-                    Totam illum explicabo ea a debitis minus!
+                    {{ person.person_info }}
                 </p>
             </div>
-            <div class="person-info">
-                <div class="person-photo">
-                    <img src="./img/sgrzelak.png" alt="">
-                </div>
-                <div class="main-info">
-                    <h2>Sara Grzelak</h2>
-                    <h3>Graphics Designer</h3>
-                </div>
-                <a class="person-icon" href="#"><img src="https://img.icons8.com/ios/50/000000/sketchfab.png"/></a>
-                <a class="person-icon" href="#"></a>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Quia magni impedit voluptas dolore hic ut 
-                    ratione eligendi rem numquam facere! Eaque, exercitationem fugiat? 
-                    Totam illum explicabo ea a debitis minus!
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                    Quia magni impedit voluptas dolore hic ut 
-                    ratione eligendi rem numquam facere! Eaque, exercitationem fugiat? 
-                    Totam illum explicabo ea a debitis minus!
-                </p>
-            </div>
+            {% endfor %}
         </div>
         {% endblock %}
     </main>
 {% block footer %}
     <footer style="position: relative;"> 
         <h4>Indigo Games Studio &copy; 2021</h4>
-        <h6 style="position: absolute; right: 10px;"><a style="text-decoration: none; color: white;" href="https://icons8.com/icon/62172/sketchfab">Sketchfab icon by Icons8</a></h6>
+        <h6 style="position: absolute; right: 10px; bottom: 0;"><a style="text-decoration: none; color: white;" href="https://icons8.com/icon/62172/sketchfab">Sketchfab icon by Icons8</a></h6>
     </footer>
     
 
